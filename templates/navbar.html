@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        body {
+        margin: 0;
+        padding: 0;
+        font-family: "Lato", sans-serif;
+    }
+
+    nav {
+        background-color: #51829B; 
+        color: #bbb; 
+        padding: 10px 30px; 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo img {
+        height: 60px; 
+    }
+
+    .menu a {
+        color: #fff; 
+        text-decoration: none;
+        margin-left: 30px; 
+        padding-right: 60px;
+        font-size: 20px;
+    }
+    </style>
+    
+</head>
+<body>
+    <nav>
+        <div class="details">
+            <div class="logo">
+                <img src="static\Color logo - no background.png" alt="">
+            </div>
+        </div>
+        <div class="menu">
+            <a href="/all">All events</a>
+            <a href="/myevents">My events</a>
+            <a href="/participated">Participated</a>
+            <a href="/host">Host event</a>
+            <a href="/login">Log out</a>
+        </div>
+    </nav>
+    <div class="container">
+        {%block content%}
+        {%endblock%}
+    </div>
+
+    <script
+    type="text/javascript"
+    src="{{ url_for('static',filename='index.js')}}"
+    ></script>
+</body>
+</html>

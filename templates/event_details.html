@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ event.title }} Details</title>
+</head>
+<body>
+    {% extends "navbar.html"%} 
+    {%block content%}
+    <center>
+    <h1>{{ event.title }} Details</h1>
+    <p><strong>Event Date:</strong> {{ event.date }}</p>
+    <p><strong>Venue:</strong> {{ event.venue }}</p>   
+    <p><strong>Description:</strong> {{ event.description }}</p>
+    <!-- Add more event details here -->
+    </center>
+    {%endblock%}
+</body>
+</html>

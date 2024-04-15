@@ -1,0 +1,136 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participated Events</title>
+</head>
+<body>
+    <h1>Participated Events</h1>
+    <ul>
+        {% for event in events %}
+            <li>{{ event.title }} - {{ event.date }} at {{ event.time }} (Venue: {{ event.venue }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participated Events</title>
+    
+    <style>
+    
+        .event-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Participated Events</h1>
+    {% for event in events %}
+    <div class="event-box">
+        <h2>{{ event.title }}</h2>
+        <p><strong>Date:</strong> {{ event.date }}</p>
+        <p><strong>Time:</strong> {{ event.time }}</p>
+        <p><strong>Venue:</strong> {{ event.venue }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <title>Participated Events</title>
+  <style>
+    body {
+      font-family: "Lato", sans-serif;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1679AB;
+    }
+
+    table {
+      width: 80%;
+      /* border-collapse: collapse; */
+      margin: 0 auto; /* Center the table */
+      background-color: #fff;
+      border:none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    } */
+
+    th {
+      /* background-color: #f2f2f2;
+      font-weight: bold; */
+      color: white;
+  background: #61677A;
+  padding: 10px;
+  border: 3px solid;
+  border-color: transparent;
+    }
+
+    td{
+      background: white ;
+  padding: 10px;
+  border: 3px solid;
+  border-color: transparent;
+  text-align: center;
+  box-shadow: 10px 10px 20px rgba(0,0,0,.1);
+    }
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+    {% extends "navbar.html"%} 
+    {%block content%}
+  <h1>Participated Events</h1>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Serial No.</th>
+        <th>Event Title</th>
+        <th>Event Date</th>
+        
+        <!-- Add more columns as needed -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for index, event in events %}
+      <tr>
+        <td>{{ index + 1 }}</td>
+        <td>{{ event.title }}</td>
+        <td>{{ event.date }}</td>
+        <!-- Display more event details in additional columns -->
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {%endblock%}
+</body>
+</html>

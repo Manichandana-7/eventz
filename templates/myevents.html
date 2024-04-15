@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <title>Hosted Events</title>
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1{
+            color: #1679AB;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .event {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .event:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .event table {
+            /* width: 100%; */
+            border-collapse: collapse;
+        }
+
+        .event th, .event td {
+            text-align: left;
+            padding: 8px; /* Reduce padding as needed */
+            padding-right: 5px; /* Minimize space to the right */
+        }
+
+        /* Removing visual cues of a table */
+        .event th, .event td, .event table {
+            border: none;
+            background-color: transparent;
+        }
+
+    </style>
+</head>
+<body>
+    {% extends "navbar.html" %} 
+    {% block content %}
+
+    <div class="container">
+        <center><h1>Hosted Events</h1></center>
+        {% for event in hosted_events %}
+        <div class="event">
+            <h2 style="color: #1679AB;">{{ event.title }}</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Venue</th>
+                        <td>:</td>
+                        <td>{{ event.venue }}</td>
+                    </tr>
+                    <tr>
+                        <th>Number of Participants</th>
+                        <td>:</td>
+                        <td>{{ event.participants }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+</body>
+</html>

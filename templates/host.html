@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <title>Host event</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            align-items: center;
+            background-color: #f0f0f0; 
+            font-family: "Lato", sans-serif;
+        }
+
+        .container {
+            display: flex;
+            padding-top:20px ;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .form-container {
+            background-color: #B3C8CF;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px; 
+            margin-right: 30px; 
+        }
+
+        h2{
+            color: #1679AB;
+        }
+
+        img {
+            
+            height: 300px;
+            border-radius: 8px;
+            /* margin-left:-50px; */
+            margin-right: 50px;
+            /* margin-bottom: -30px; */
+            /* padding-bottom: 30px; */
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="submit"],
+        input[type="file"],
+        textarea {
+            width: calc(100% - 16px); /* Adjust for input padding */
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            /* box-sizing: border-box; Makes sure padding does not affect the overall width */
+        }
+
+        input[type="submit"] {
+            background-color: #4793AF; /* Green background */
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1679AB ; /* Darker green on hover */
+        }
+
+        /* label {
+            display: block;
+            margin: 10px 0 5px 0;
+        } */
+    </style>
+</head>
+<body>
+    {% extends "navbar.html"%} 
+    {%block content%}
+    <div class="container">
+    <img class="pic" src="https://integrity-events.com/wp-content/uploads/2021/03/1.png" alt="">
+    <div class="form-container">
+    <form action="/host" method="POST" enctype="multipart/form-data">
+        <center><h2>Event Details</h2></center>
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+        <label>Event Title</label>
+        <input type="text" name="title" id="title" placeholder="Event title" required><br>
+        <label>Venue</label>
+        <input type="text" name="venue" id="venue" placeholder="Venue" required><br>
+        <label>Participants limit</label>
+        <input type="number" name="limit" id="limit" placeholder="Participants limit" required><br>
+        <label>Date</label>
+        <input type="date" name="date" id="date" required><br>
+        <label>Timings</label>
+        <input type="text" name="time" id="time" placeholder="Timings" required><br>
+        <label>Description</label>
+        <textarea name="description" id="description" cols="30" rows="10" placeholder="Description about the event" required></textarea><br>
+        <input type="submit" name="submit" id="submit" value="Host event">
+    </form>
+</div>
+</div>
+    {%endblock%}
+</body>
+</html>

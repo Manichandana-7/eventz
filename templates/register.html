@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <title>Register</title>
+    <style>
+
+        body {
+            font-family: "Lato", sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 600px; /* Adjust width as needed */
+        }
+
+        .image {
+            flex: 1;
+            padding: 20px;
+            margin-top: 55px; 
+        }
+
+        .image img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .details h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #173a5e;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 3px;
+            color: #173a5e;
+        }
+
+        input[type="text"],
+        input[type="password"], 
+        input[type="email"],
+        input[type="number"]{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #173a5e;
+            border-radius: 3px;
+            box-sizing: border-box;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"]:hover,
+        input[type="password"]:hover
+        input[type="email"]:hover,
+        input[type="number"]:hover {
+            border: 1px solid black;
+        }
+
+        input[type="submit"] {
+            background-color: #173a5e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background-color: black;
+        }
+
+        #password {
+            text-align: center;
+            font-size: 12px;
+            color: #8e8e8e;
+            margin-top: 10px;
+        }
+
+        a{
+            color: red;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="{{ url_for('register') }}">
+        <div class="container">
+            <div class="image">
+                <img src="static\reg_pic.jpg" alt="">
+            </div>
+            <div class="details">
+
+                <h2>Register</h2>
+                {% if message %}
+                    <p>{{ message }}</p>
+                {% endif %}
+                
+        
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required><br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br>
+                    <label >Phone number:</label>
+                    <input type="number" name="phone" id="phone" required><br>
+                    <input type="submit" value="Register">
+                    <center><p>Already a member? <span><a href="/login" style="color:red;">Login</a></span></p></center>
+        
+            </div>
+        </div>
+    </form>
+</body>
+</html>
